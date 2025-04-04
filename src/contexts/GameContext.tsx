@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export type BankLevel = 'office' | 'branch' | 'headquarters';
@@ -106,7 +105,7 @@ const INITIAL_PRODUCTS: Product[] = [
     name: 'Вклады',
     icon: '💰',
     unlocked: true,
-    level: 1,
+    level: 0,
     description: 'Депозитные продукты для накопления средств клиентов',
     pointsPerSecond: 0,
   },
@@ -115,7 +114,7 @@ const INITIAL_PRODUCTS: Product[] = [
     name: 'Кредиты',
     icon: '💳',
     unlocked: true,
-    level: 1,
+    level: 0,
     description: 'Кредитные продукты для физических лиц',
     pointsPerSecond: 0,
   },
@@ -124,7 +123,7 @@ const INITIAL_PRODUCTS: Product[] = [
     name: 'Карты',
     icon: '💳',
     unlocked: true,
-    level: 1,
+    level: 0,
     description: 'Дебетовые и кредитные карты',
     pointsPerSecond: 0,
   },

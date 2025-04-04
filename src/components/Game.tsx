@@ -10,6 +10,21 @@ import MissionsTab from './tabs/MissionsTab';
 import ProgressTab from './tabs/ProgressTab';
 import { Button } from '@/components/ui/button';
 
+// Добавляем определение типа для глобального объекта Telegram
+declare global {
+  interface Window {
+    Telegram?: {
+      WebApp: {
+        expand: () => void;
+        MainButton: {
+          setText: (text: string) => void;
+          show: () => void;
+        };
+      };
+    };
+  }
+}
+
 const Game: React.FC = () => {
   const { currentTab, addKnowledgePoints, knowledgePoints } = useGame();
   const [showStartScreen, setShowStartScreen] = useState(true);

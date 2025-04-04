@@ -20,7 +20,7 @@ const ProgressTab: React.FC = () => {
   };
 
   const getUnlockedProducts = () => {
-    return products.filter(p => p.unlocked).length;
+    return products.filter(p => p.unlocked && p.level > 0).length;
   };
 
   const getUnlockedTeamMembers = () => {
