@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Game-specific colors
+				"bank-blue": "#D3E4FD",
+				"bank-green": "#F2FCE2",
+				"bank-yellow": "#FEF7CD",
+				"bank-orange": "#FEC6A1",
+				"bank-purple": "#E5DEFF",
+				"bank-pink": "#FFDEE2",
+				"bank-peach": "#FDE1D3",
+				"knowledge": "#7CB9E8", // Soft blue for knowledge points
+				"trust": "#F9A7B0",    // Soft pink for trust points
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +95,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-light': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' },
+				},
+				'bounce-light': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' },
+				},
+				'scale-in': {
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-light': 'pulse-light 2s infinite ease-in-out',
+				'bounce-light': 'bounce-light 2s infinite ease-in-out',
+				'scale-in': 'scale-in 0.2s ease-out',
 			}
 		}
 	},
