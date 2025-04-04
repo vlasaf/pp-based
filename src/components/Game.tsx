@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGame } from '../contexts/GameContext';
 import Header from './Header';
 import TabBar from './TabBar';
@@ -13,6 +13,18 @@ import { Button } from '@/components/ui/button';
 const Game: React.FC = () => {
   const { currentTab, addKnowledgePoints, knowledgePoints } = useGame();
   const [showStartScreen, setShowStartScreen] = useState(true);
+  
+  // Check if we're in Telegram WebApp environment
+  const isTelegramWebApp = Boolean(window.Telegram?.WebApp);
+  
+  useEffect(() => {
+    // If in Telegram, we can use Telegram WebApp features
+    if (isTelegramWebApp) {
+      console.log('Running in Telegram WebApp environment');
+      // Expand the WebApp to its maximum allowed height
+      window.Telegram.WebApp.expand();
+    }
+  }, [isTelegramWebApp]);
   
   const renderCurrentTab = () => {
     switch (currentTab) {
@@ -33,6 +45,11 @@ const Game: React.FC = () => {
 
   const handleStartGame = () => {
     setShowStartScreen(false);
+    // If in Telegram WebApp, notify the app that the user started the game
+    if (isTelegramWebApp) {
+      window.Telegram.WebApp.MainButton.setText('Играть!');
+      window.Telegram.WebApp.MainButton.show();
+    }
   };
 
   if (showStartScreen) {
